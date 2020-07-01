@@ -15,4 +15,16 @@ public class EmployeeService {
     public List<Employee> getEmployees() {
         return employeeDal.fetchEmployees();
     }
+
+    public void AddEmployee(Employee employee){
+        employeeDal.AddEmployee(employee);
+    }
+
+    public void UpdateEmployee(Employee employee){
+        employeeDal.UpdateEmployee(employee);
+    }
+
+    public void DeleteEmployee(int id){
+        employeeDal.DeleteEmployee(id);
+    }
 }

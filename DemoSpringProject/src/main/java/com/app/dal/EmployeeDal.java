@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
@@ -27,6 +29,21 @@ public class EmployeeDal {
             }
         });
 
+    }
+
+    @Transactional
+    public void AddEmployee(Employee employee){
+      jdbcTemplate.update("insert into Employee (FirstName, LastName) values (?, ?)",employee.getFirstName(),employee.getLastName());
+    }
+
+    @Transactional
+    public void UpdateEmployee(Employee employee){
+        jdbcTemplate.update("update Employee set FirstName = ? , LastName = ? where ID = ? ",employee.getFirstName(),employee.getLastName(),employee.getId());
+    }
+
+    @Transactional
+    public void DeleteEmployee(int id){
+        jdbcTemplate.update("delete from Employee where ID = ? ",id);
     }
 
 }
