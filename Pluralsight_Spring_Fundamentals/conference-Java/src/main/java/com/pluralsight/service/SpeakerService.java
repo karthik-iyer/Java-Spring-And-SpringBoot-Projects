@@ -1,4 +1,4 @@
-package com.pluralsight.com.pluralsight.service;
+package com.pluralsight.service;
 
 import com.pluralsight.model.Speaker;
 
