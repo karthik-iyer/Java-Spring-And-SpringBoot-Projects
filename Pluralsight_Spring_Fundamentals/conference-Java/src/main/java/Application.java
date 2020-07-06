@@ -13,6 +13,9 @@ public class Application {
 
         SpeakerService service = appContext.getBean("speakerService",SpeakerService.class);
 
+        System.out.println(service);
+        SpeakerService service2 = appContext.getBean("speakerService",SpeakerService.class);
+        System.out.println(service2);
         System.out.println(service.findAll().get(0).getFirstName() + " " + service.findAll().get(0).getLastName());
     }
 }
